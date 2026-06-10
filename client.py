@@ -1,9 +1,8 @@
 import asyncio
-from pathlib import Path
 
 from fastmcp import Client
 
-server_path = Path(__file__).parent / "server.py"
+server_path = "http://localhost:8000/sse"
 client = Client(server_path)
 
 async def call_server(client: Client, username: str, user_id: int):

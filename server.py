@@ -7,6 +7,6 @@ async def hello(username: str, user_id: int) -> str: #typing helps IA undestand 
 	return f'Hello {username}! (ID {user_id})'
 
 if __name__ == "__main__":
-	server_mcp.run(transport="stdio") #standard input output
+	server_mcp.run(transport="sse") #standard input output
  
  
