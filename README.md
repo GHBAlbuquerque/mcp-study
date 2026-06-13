@@ -3,11 +3,11 @@
 Small study project that exposes lightweight MCP-style tools to fetch current weather, weather forecasts (OpenWeatherMap) and short Wikipedia summaries.
 
 **Contents**
-- `claude_weather_forecast_server.py` - MCP server exposing current weather and forecast tools (uses OpenWeatherMap).
-- `weather_forecast_server.py` - alternative weather server implementation.
-- `wikipedia_search_server.py` - MCP server that returns Wikipedia summaries.
-- `claude_wikipedia_search_server.py` - Claude-style Wikipedia server.
+- `weather_forecast_server.py` - MCP server exposing current weather and forecast tools, uses OpenWeatherMap (sse).
+- `wikipedia_search_server.py` - MCP server that returns Wikipedia summaries (sse).
 - `weather_forecast_client.py`, `wikipedia_search_client.py` - minimal example clients.
+- `claude_weather_forecast_server.py` - MCP server with stdio for Claude Desktop integration.
+- `claude_wikipedia_search_server.py` - MCP server with stdio for Claude Desktop integration.
 - `pyproject.toml` - project metadata / dependencies.
 
 **Prerequisites**
@@ -71,9 +71,4 @@ python wikipedia_search_client.py
 - Add README examples showing sample JSON responses and code snippets for calling the MCP endpoints.
 - Add tests or a tiny demo script that calls each server tool.
 
----
-If you'd like, I can also:
-- add example `.env.example`,
-- create `requirements.txt` from the current environment, or
-- add usage examples that call the MCP endpoints programmatically.
 
