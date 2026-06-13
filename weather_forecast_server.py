@@ -2,8 +2,12 @@ import os
 
 import dotenv
 import requests
+from fastmcp import FastMCP
 
-def search_local_weather(local: str) -> dict:
+mcp_server = FastMCP("mcp-server")
+
+@mcp_server.tool()
+async def search_local_weather(local: str) -> dict:
     dotenv.load_dotenv()
     api_key=os.getenv("OPEN_WEATHER_API_KEY")
     url="https://api.openweathermap.org/data/2.5/weather"
@@ -16,7 +20,8 @@ def search_local_weather(local: str) -> dict:
     response = requests.get(url=url, params=params)
     return response.json()
 
-def search_weather_forecast(local: str) -> dict:
+@mcp_server.tool()
+async def search_weather_forecast(local: str) -> dict:
     dotenv.load_dotenv()
     api_key=os.getenv("OPEN_WEATHER_API_KEY")
     url="https://api.openweathermap.org/data/2.5/forecast"
@@ -30,5 +35,4 @@ def search_weather_forecast(local: str) -> dict:
     return response.json()
 
 if __name__ == "__main__":
-    print(search_local_weather("São José dos Campos, Brazil"))
-    print(search_weather_forecast("Osasco, Brazil"))
+    mcp_server.run(transport="sse")
