@@ -36,7 +36,7 @@ async def call_server(client: Client, local: str,):
         response=client_openai.responses.create(
             model="gpt-5-nano",
             instructions=system_message,
-            input="Please summarize this search result for me.",
+            input="What is the current and forecast weather for the location provided?",
         )
         print(f'\n==================================================================\n')
         print(response.output_text)
